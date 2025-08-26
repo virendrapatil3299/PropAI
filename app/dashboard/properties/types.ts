@@ -1,0 +1,38 @@
+export type Listing = {
+   id: string | number;
+   zpid: string | number;
+  title: string;
+  price: string;
+  area: string;
+  url: string;
+      statusType?: 'For Sale' | 'Sold' | 'For Rent'|'Unknown'; 
+      imgSrc: string;
+       has3DModel?: string;
+        address?: string;
+         addressCity?: string; 
+         addressStreet?: string; 
+         addressState?: string; 
+         addressZipcode?: string; 
+         lat?: number; 
+         lng?: number; 
+         latLong?: { latitude: number ; longitude: number  }; 
+         location?: string;
+         baths?: number; 
+         beds?: number; 
+         builderName?: string; 
+         homeType?: string; 
+         overallScore?: number; 
+         cashFlowScore?: number; 
+         investmentStrategy?: string; 
+         recommendedAction?: string; 
+         grade?: string; 
+         propertyId?: string; 
+         statusText?: string; 
+         flexFieldText?: string; 
+         marketingStatusSimplifiedCd?: string; 
+         gallery?: string[]; 
+         tags?: string[]; 
+         description?: string; 
+         isNew?: boolean; 
+         createdAt?: string;
+}
