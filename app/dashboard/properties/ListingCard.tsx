@@ -26,7 +26,7 @@ export default function ListingCard({ deal, Id, onSelect }: ListingCardProps) {
 
     const checkSaved = async () => {
       try {
-        const res = await fetch(`/api/saved-homes?userId=${Id}`);
+        const res = await fetch(`/api/saved-homes?Id=${Id}`);
         if (!res.ok) throw new Error("Failed to fetch saved homes");
 
         const data: { propertyId: string }[] = await res.json();

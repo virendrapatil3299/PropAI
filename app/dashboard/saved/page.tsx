@@ -14,7 +14,7 @@ export default function SavedPage() {
     setSavedHomes(saved);
 
     // Example: load userId from localStorage or auth provider
-    const uid = localStorage.getItem("userId");
+    const uid = localStorage.getItem("Id");
     setUserId(uid);
   }, []);
 
