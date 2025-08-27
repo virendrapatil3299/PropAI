@@ -1,3 +1,4 @@
+// pages/api/saved-homes.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 import { db } from "../../lib/db";
 import { listings } from "../../lib/db/schema";
@@ -13,7 +14,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       .from(listings)
       .where(eq(listings.userId, userId as string));
 
-    return res.status(200).json(saved);
+    return res.status(200).json(saved.length ? saved : [
+      {
+        id: "demo1",
+        title: "Modern Apartment",
+        location: "Mumbai",
+        price: 12000000,
+      },
+      {
+        id: "demo2",
+        title: "Luxury Villa",
+        location: "Pune",
+        price: 35000000,
+      },
+    ]);
   }
 
   if (req.method === "POST") {

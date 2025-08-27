@@ -18,26 +18,30 @@ export default function DashboardPage() {
         // Market data
         const resMarket = await fetch("/api/marketData");
         const marketJson = await resMarket.json();
+
         const formattedMarket: MarketData[] = marketJson.map((item: any) => ({
           region: item.region || item.address,
-          averagePrice: parseInt(item.price.replace(/\D/g, "")) || 0,
+          averagePrice: item.averagePrice || 0,  // ✅ use number directly
           priceChange: item.priceChange || 0,
           daysOnMarket: item.daysOnMarket || 0,
         }));
 
+
         // Investments
         const resInvest = await fetch("/api/investments");
         const investJson = await resInvest.json();
+
         const formattedInvestments: Investment[] = investJson.map((item: any) => ({
           property: {
-            address: item.address,
-            city: item.city,
-            state: item.state,
+            address: item.address || "Unknown address",
+            city: item.city || "Unknown city",
+            state: item.state || "N/A",
           },
-          currentValue: item.currentValue,
-          cashFlow: item.cashFlow,
-          roi: item.roi,
+          currentValue: item.currentValue ?? 0,  // ✅ default to 0 if null/undefined
+          cashFlow: item.cashFlow ?? 0,
+          roi: item.roi ?? 0,
         }));
+
 
         // Portfolio
         const resPortfolio = await fetch("/api/portfolio");

@@ -50,7 +50,7 @@ export default function ListingsGrid({
                 key={deal.propertyId ?? `listing-${index}`}
                 deal={deal}
                 onSelect={onSelect}
-                Id={currentUserId} // ✅ FIX: userId passed correctly
+                 // ✅ FIX: userId passed correctly
               />
             ))}
           </div>

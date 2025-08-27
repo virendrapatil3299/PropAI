@@ -214,9 +214,11 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
           <div className="p-4">
             <div className="flex justify-between items-center">
               <h3 className="text-lg font-bold text-slate-800">{selected.price}</h3>
-              <button>
-                <Heart size={20} className="text-red-500 hover:scale-110 transition" />
-              </button>
+              <div className="absolute top-3 right-3">
+                <div className="bg-white/60 rounded-full p-2 shadow-md hover:bg-white transition">
+                  <Heart className="w-4 h-4 text-red-500" />
+                </div>
+              </div>
             </div>
             <p className="text-sm text-slate-600 mt-1 line-clamp-1">
               {selected.address}

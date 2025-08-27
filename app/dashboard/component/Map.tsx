@@ -13,11 +13,7 @@ export default function NeighborhoodMap({ lat, lon, label }: Props) {
   return (
     <div className="w-auto h-96">
       <Map
-<<<<<<< HEAD
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
-=======
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
         initialViewState={{
           longitude: lon || -73.935242, // fallback NYC
           latitude: lat || 40.73061,

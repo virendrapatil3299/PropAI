@@ -3,10 +3,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
-<<<<<<< HEAD
+
 import DashboardLayout from "../SavedPage/layout";
-=======
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
+
+
 
 interface Property {
   id: number;
@@ -19,25 +19,25 @@ interface Property {
 const mockData: Property[] = [
   {
     id: 1,
-    title: "Modern Apartment",
-    location: "Mumbai, India",
-    price: "₹75,000/month",
+    title: "Smart Home",
+    location: "456 Pine Avenue, Austin, TX 78701",
+    price: "$675,000",
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 2,
     title: "Luxury Villa",
-    location: "Pune, India",
-    price: "₹2.5 Cr",
+    location: "789 Maple Drive, Denver, CO 80202",
+    price: "$850,000",
     image:
       "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 3,
     title: "Cozy Studio",
-    location: "Bangalore, India",
-    price: "₹45,000/month",
+    location: "123 Oak Street, San Francisco, CA 94102",
+    price: "$1,250,000",
     image:
       "https://images.unsplash.com/photo-1560448075-bb485b067938?auto=format&fit=crop&w=800&q=80",
   },
@@ -45,10 +45,10 @@ const mockData: Property[] = [
 
 export default function RecentlyViewedPage() {
   return (
-<<<<<<< HEAD
+
     <DashboardLayout>
-=======
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
+
+
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
         <Eye className="h-5 w-5 text-blue-600" />
@@ -79,9 +79,8 @@ export default function RecentlyViewedPage() {
         ))}
       </div>
     </div>
-<<<<<<< HEAD
+
     </DashboardLayout>
-=======
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
+
   );
 }

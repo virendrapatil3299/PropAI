@@ -3,79 +3,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin, Bed, Bath, Square, TrendingUp, Heart } from "lucide-react";
+import { MapPin, Bed, Bath, Square, TrendingUp ,Heart } from "lucide-react";
 import { getGradeColor } from "./helpers";
 import type { Listing } from "./types";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 
 type ListingCardProps = {
   deal: Listing;
   onSelect: (property: Listing) => void;
-  Id?: string; // ✅ make optional
 };
 
-export default function ListingCard({ deal, Id, onSelect }: ListingCardProps) {
-  const [isSaved, setIsSaved] = useState(false);
-
-  // ✅ Check if already saved
-  useEffect(() => {
-    if (!Id) return;
-
-    let cancelled = false;
-
-    const checkSaved = async () => {
-      try {
-<<<<<<< HEAD
-        const res = await fetch(`/api/saved-homes?Id=${Id}`);
-=======
-        const res = await fetch(`/api/saved-homes?userId=${Id}`);
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
-        if (!res.ok) throw new Error("Failed to fetch saved homes");
-
-        const data: { propertyId: string }[] = await res.json();
-        if (!cancelled) {
-          const alreadySaved = data.some((h) => h.propertyId === deal.propertyId);
-          setIsSaved(alreadySaved);
-        }
-      } catch (err) {
-        console.error("Error checking saved homes:", err);
-      }
-    };
-
-    checkSaved();
-    return () => {
-      cancelled = true;
-    };
-  }, [deal.propertyId, Id]);
-
-  const handleSave = async (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!Id) return;
-
-    try {
-      if (!isSaved) {
-        const res = await fetch(`/api/saved-homes`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ Id, propertyId: deal.propertyId }),
-        });
-        if (!res.ok) throw new Error("Failed to save home");
-        setIsSaved(true);
-      } else {
-        const res = await fetch(`/api/saved-homes`, {
-          method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ Id, propertyId: deal.propertyId }),
-        });
-        if (!res.ok) throw new Error("Failed to unsave home");
-        setIsSaved(false);
-      }
-    } catch (err) {
-      console.error("Error toggling save:", err);
-    }
-  };
-
+export default function ListingCard({ deal, onSelect }: ListingCardProps) {
   return (
     <Card
       className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer"
@@ -89,29 +26,17 @@ export default function ListingCard({ deal, Id, onSelect }: ListingCardProps) {
           height={420}
           className="w-full h-40 object-cover rounded-t-lg"
         />
-
+        <div className="absolute top-3 right-3">
+        <div className="bg-white/60 rounded-full p-2 shadow-md hover:bg-white transition">
+          <Heart className="w-4 h-4 text-red-500" />
+        </div>
+      </div>
         {/* Grade Badge */}
         {deal.flexFieldText && (
           <div className="absolute top-3 left-3">
             <Badge className={getGradeColor(deal.flexFieldText)}>
               {deal.flexFieldText}
             </Badge>
-          </div>
-        )}
-
-        {/* Save button */}
-        {Id && (
-          <div className="absolute top-3 right-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              className={`bg-white/80 hover:bg-white rounded-full transition ${
-                isSaved ? "text-red-500" : "text-gray-500"
-              }`}
-              onClick={handleSave}
-            >
-              <Heart className={`w-5 h-5 ${isSaved ? "fill-red-500" : ""}`} />
-            </Button>
           </div>
         )}
       </div>

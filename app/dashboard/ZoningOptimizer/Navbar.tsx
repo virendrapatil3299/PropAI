@@ -17,15 +17,11 @@ import {
 // Sidebar navigation config
 const navigation = [
   { name: "Home", icon: Home, href: "/" },
-  { name: "My Profile", icon: User, href: "/dashboard/Profile" },
-<<<<<<< HEAD
-  { name: "Saved Homes", icon: Heart, href: "/dashboard/saved", active: true },
-=======
-  { name: "Saved Homes", icon: Heart, href: "/dashboard/Saved" },
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
-  { name: "Alerts", icon: Bell, href: "/dashboard/InboxPage" },
-  { name: "Settings", icon: Settings, href: "/dashboard/Settings" },
-  { name: "Logout", icon: LogOut, href: "/logout", special: true }, // red style
+  { name: "My Profile", icon: User, href: "/dashboard/profile" },
+  { name: "Saved Homes", icon: Heart, href: "/dashboard/saved" },
+  { name: "Alerts", icon: Bell, href: "/dashboard/inbox" },
+  { name: "Settings", icon: Settings, href: "/dashboard/settings" },
+  { name: "Logout", icon: LogOut, href: "/logout", special: true }, // styled red
 ];
 
 export default function Navbar() {
@@ -37,13 +33,15 @@ export default function Navbar() {
       <nav className="w-full border-b bg-white shadow-sm sticky top-0 left-0 z-40">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="text-lg font-bold text-blue-600 hover:opacity-90 transition">
+          <Link
+            href="/"
+            className="text-lg font-bold text-blue-600 hover:opacity-90 transition"
+          >
             PropAI
           </Link>
 
           {/* Right Menu */}
           <div className="flex space-x-6 text-sm font-medium items-center">
-            {/* Sell Property - SPA redirect (same page, no reload) */}
             <Link
               href="/dashboard/SavedPage"
               className="px-3 py-1.5 rounded-md border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition"
@@ -51,10 +49,16 @@ export default function Navbar() {
               Sell Property
             </Link>
 
-            <Link href="/dashboard/MarketAnalysis" className="hover:text-blue-600 transition">
+            <Link
+              href="/dashboard/MarketAnalysis"
+              className="hover:text-blue-600 transition"
+            >
               Investment
             </Link>
-            <Link href="/dashboard/PropertyValuation" className="hover:text-blue-600 transition">
+            <Link
+              href="/dashboard/PropertyValuation"
+              className="hover:text-blue-600 transition"
+            >
               Valuation
             </Link>
 
@@ -107,7 +111,7 @@ export default function Navbar() {
                   ? "text-red-600 hover:bg-red-50 hover:text-red-700"
                   : "hover:bg-gray-100 hover:text-blue-600"
               }`}
-              onClick={() => setSidebarOpen(false)} // close sidebar after click
+              onClick={() => setSidebarOpen(false)}
             >
               <item.icon className="w-5 h-5" />
               {item.name}
