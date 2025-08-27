@@ -23,10 +23,9 @@
     "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "^1.2.6",
-<<<<<<< HEAD
+
     "@sparticuz/chromium": "^138.0.2",
-=======
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
+
     "@types/express": "^5.0.3",
     "axios": "^1.11.0",
     "class-variance-authority": "^0.7.1",
@@ -43,11 +42,10 @@
     "next-auth": "^4.24.11",
     "pg": "^8.16.3",
     "postgres": "^3.4.7",
-<<<<<<< HEAD
+
     "puppeteer": "^24.17.0",
     "puppeteer-core": "^24.17.0",
-=======
->>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
+
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-leaflet": "^5.0.0",
