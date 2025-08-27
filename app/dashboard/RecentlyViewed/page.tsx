@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
+import DashboardLayout from "../SavedPage/layout";
 
 interface Property {
   id: number;
@@ -41,6 +42,7 @@ const mockData: Property[] = [
 
 export default function RecentlyViewedPage() {
   return (
+    <DashboardLayout>
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
         <Eye className="h-5 w-5 text-blue-600" />
@@ -71,5 +73,6 @@ export default function RecentlyViewedPage() {
         ))}
       </div>
     </div>
+    </DashboardLayout>
   );
 }

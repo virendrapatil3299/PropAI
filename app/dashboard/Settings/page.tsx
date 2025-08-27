@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import DashboardLayout from "../SavedPage/layout";
 
 export default function AccountSettingsPage() {
   const [name, setName] = useState("John Doe");
@@ -18,6 +19,7 @@ export default function AccountSettingsPage() {
   };
 
   return (
+    <DashboardLayout>
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900">Account Settings</h1>
@@ -90,5 +92,6 @@ export default function AccountSettingsPage() {
         </Button>
       </div>
     </div>
+    </DashboardLayout>
   );
 }

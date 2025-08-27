@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import ListingCard from "../properties/ListingCard";
 import type { Listing } from "../properties/types";
+  import DashboardLayout from "../SavedPage/layout";
+
 
 export default function SavedPage() {
   const [savedHomes, setSavedHomes] = useState<Listing[]>([]);
@@ -23,7 +25,8 @@ export default function SavedPage() {
   };
 
   return (
-    <div className="p-6 mt-20">
+    <DashboardLayout>
+    <div className="p-6 mt-20 border">
       <h1 className="text-2xl font-bold mb-6">❤️ Saved Homes</h1>
 
       {savedHomes.length === 0 ? (
@@ -41,5 +44,6 @@ export default function SavedPage() {
         </div>
       )}
     </div>
+  </DashboardLayout>
   );
 }

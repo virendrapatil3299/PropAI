@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {  listings } from '../../lib/db/schema';
-import { db  } from '../../lib/db';
+import {  listings } from './schema';
+import { db  } from '.';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
