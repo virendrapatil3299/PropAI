@@ -2,7 +2,11 @@
 
 import { Home, BarChart3, Map, Layers, DollarSign, Box, Activity, ClipboardList } from "lucide-react"
 import Link from "next/link"
+<<<<<<< HEAD
 import { cn } from "../../../lib/utils"
+=======
+import { cn } from "@/lib/utils"
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
 
 const navItems = [
   { name: "Dashboard", icon: Home, href: "/" },

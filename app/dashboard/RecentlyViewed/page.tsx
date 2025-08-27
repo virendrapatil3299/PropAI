@@ -3,7 +3,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
+<<<<<<< HEAD
 import DashboardLayout from "../SavedPage/layout";
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
 
 interface Property {
   id: number;
@@ -42,7 +45,10 @@ const mockData: Property[] = [
 
 export default function RecentlyViewedPage() {
   return (
+<<<<<<< HEAD
     <DashboardLayout>
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
         <Eye className="h-5 w-5 text-blue-600" />
@@ -73,6 +79,9 @@ export default function RecentlyViewedPage() {
         ))}
       </div>
     </div>
+<<<<<<< HEAD
     </DashboardLayout>
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
   );
 }

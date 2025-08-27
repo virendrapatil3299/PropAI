@@ -18,7 +18,11 @@ import {
 const navigation = [
   { name: "Home", icon: Home, href: "/" },
   { name: "My Profile", icon: User, href: "/dashboard/Profile" },
+<<<<<<< HEAD
   { name: "Saved Homes", icon: Heart, href: "/dashboard/saved", active: true },
+=======
+  { name: "Saved Homes", icon: Heart, href: "/dashboard/Saved" },
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
   { name: "Alerts", icon: Bell, href: "/dashboard/InboxPage" },
   { name: "Settings", icon: Settings, href: "/dashboard/Settings" },
   { name: "Logout", icon: LogOut, href: "/logout", special: true }, // red style

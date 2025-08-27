@@ -3,8 +3,11 @@
 import { useEffect, useState } from "react";
 import ListingCard from "../properties/ListingCard";
 import type { Listing } from "../properties/types";
+<<<<<<< HEAD
   import DashboardLayout from "../SavedPage/layout";
 
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
 
 export default function SavedPage() {
   const [savedHomes, setSavedHomes] = useState<Listing[]>([]);
@@ -16,7 +19,11 @@ export default function SavedPage() {
     setSavedHomes(saved);
 
     // Example: load userId from localStorage or auth provider
+<<<<<<< HEAD
     const uid = localStorage.getItem("Id");
+=======
+    const uid = localStorage.getItem("userId");
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
     setUserId(uid);
   }, []);
 
@@ -25,8 +32,12 @@ export default function SavedPage() {
   };
 
   return (
+<<<<<<< HEAD
     <DashboardLayout>
     <div className="p-6 mt-20 border">
+=======
+    <div className="p-6 mt-20">
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
       <h1 className="text-2xl font-bold mb-6">❤️ Saved Homes</h1>
 
       {savedHomes.length === 0 ? (
@@ -44,6 +55,9 @@ export default function SavedPage() {
         </div>
       )}
     </div>
+<<<<<<< HEAD
   </DashboardLayout>
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
   );
 }

@@ -7,7 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Home, MapPin, DollarSign, Image, Info } from "lucide-react";
+<<<<<<< HEAD
 import DashboardLayout from "../SavedPage/layout";
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
 
 export default function SellPropertyPage() {
   const [formData, setFormData] = useState({
@@ -132,7 +135,10 @@ export default function SellPropertyPage() {
   };
 
   return (
+<<<<<<< HEAD
     <DashboardLayout>
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
     <div className="mx-auto mt-8 max-w-6xl px-4">
       <Card className="shadow-2xl rounded-2xl border border-gray-200 overflow-hidden">
         <CardHeader className="bg-gradient-to-r from-indigo-600 to-purple-600 p-8">
@@ -251,6 +257,9 @@ export default function SellPropertyPage() {
         </CardContent>
       </Card>
     </div>
+<<<<<<< HEAD
     </DashboardLayout>
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
   );
 }

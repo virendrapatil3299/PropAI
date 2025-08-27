@@ -3,7 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Wallet, FileText, Wrench, Info } from "lucide-react";
+<<<<<<< HEAD
 import DashboardLayout from "../SavedPage/layout"; 
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
 
 const renterTools = [
   {
@@ -38,7 +41,10 @@ const renterTools = [
 
 export default function RenterHubPage() {
   return (
+<<<<<<< HEAD
     <DashboardLayout>
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-semibold text-gray-800 mb-6">
         Renter Hub
@@ -70,6 +76,9 @@ export default function RenterHubPage() {
         })}
       </div>
     </div>
+<<<<<<< HEAD
     </DashboardLayout>
+=======
+>>>>>>> 2914fb91c67f6175371b759a2bfabc474be8ba3b
   );
 }
