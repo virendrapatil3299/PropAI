@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import mapboxgl, { Map } from "mapbox-gl"
+import mapboxgl, { accessToken, Map } from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { Bed, Bath, Square, Heart, X } from "lucide-react"
 import Image from "next/image"
@@ -21,6 +21,8 @@ export type Listing = {
   beds?: number
   statusType?: "For Sale" | "For Rent" | "Sold" | "Unknown"
 }
+
+console.log(accessToken);
 
 const toNumber = (v: unknown): number | undefined => {
   const n = typeof v === "string" ? parseFloat(v) : (v as number)
