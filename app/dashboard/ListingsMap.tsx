@@ -1,19 +1,14 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import mapboxgl, { accessToken, Map } from "mapbox-gl"
+import mapboxgl, { Map } from "mapbox-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 import { Bed, Bath, Square, Heart, X } from "lucide-react"
-import Image from "next/image"
-
-mapboxgl.accessToken =
-  process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN ||
-  (process.env.MAPBOX_ACCESS_TOKEN as string)
 
 export type Listing = {
   id: string | number
   price?: string
-  latLong?: { latitude: number ; longitude: number  }
+  latLong?: { latitude: number; longitude: number }
   imgSrc?: string
   address?: string
   area?: string
@@ -22,7 +17,14 @@ export type Listing = {
   statusType?: "For Sale" | "For Rent" | "Sold" | "Unknown"
 }
 
-console.log(accessToken);
+// ✅ Always use NEXT_PUBLIC_ for frontend env
+const accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
+
+if (!accessToken) {
+  console.error("❌ Missing NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN in .env.local")
+}
+
+mapboxgl.accessToken = accessToken || ""
 
 const toNumber = (v: unknown): number | undefined => {
   const n = typeof v === "string" ? parseFloat(v) : (v as number)
@@ -38,7 +40,7 @@ const hasValidCoords = (l: Listing) => {
 type ListingsMapProps = {
   listings?: Listing[]
   onSelect?: (property: Listing | null) => void
-  center?: [number, number] // optional: [lng, lat]
+  center?: [number, number] // [lng, lat]
 }
 
 const statusColors: Record<string, string> = {
@@ -58,11 +60,11 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
     if (onSelect) onSelect(selected)
   }, [selected, onSelect])
 
-  // Center map on prop
+  // Center map when `center` prop changes
   useEffect(() => {
     const map = mapRef.current
     if (!map || !center) return
-    map.easeTo({ center, zoom:15 })
+    map.easeTo({ center, zoom: 15 })
   }, [center])
 
   // Init map
@@ -85,7 +87,7 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
     }
   }, [])
 
-  // Render pins only
+  // Render pins
   useEffect(() => {
     const map = mapRef.current
     if (!map) return
@@ -93,7 +95,7 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
     const validListings = listings.filter(hasValidCoords)
     if (validListings.length === 0) return
 
-    // Cleanup old layers/sources
+    // Cleanup
     const layerIds = ["unclustered-point", "unclustered-label"]
     layerIds.forEach((id) => {
       if (map.getLayer(id)) map.removeLayer(id)
@@ -161,7 +163,7 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
       },
     })
 
-    // Pin click → card
+    // Pin click
     map.on("click", "unclustered-point", (e) => {
       const feature = e.features?.[0]
       if (!feature) return
@@ -169,10 +171,7 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
         const listing: Listing = JSON.parse(feature.properties!.data)
         setSelected(listing)
         map.easeTo({
-          center: (feature.geometry as GeoJSON.Point).coordinates as [
-            number,
-            number
-          ],
+          center: (feature.geometry as GeoJSON.Point).coordinates as [number, number],
           zoom: 15,
         })
       } catch {
@@ -180,7 +179,7 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
       }
     })
 
-    // Cursor
+    // Cursor styles
     map.on("mouseenter", "unclustered-point", () => {
       map.getCanvas().style.cursor = "pointer"
     })
@@ -188,14 +187,11 @@ export default function ListingsMap({ listings = [], onSelect, center }: Listing
       map.getCanvas().style.cursor = ""
     })
 
-    // ✅ Fit map to all pins
+    // Fit map
     if (validListings.length > 0) {
       const bounds = new mapboxgl.LngLatBounds()
       validListings.forEach((l) => {
-        bounds.extend([
-          toNumber(l.latLong!.longitude)!,
-          toNumber(l.latLong!.latitude)!,
-        ])
+        bounds.extend([toNumber(l.latLong!.longitude)!, toNumber(l.latLong!.latitude)!])
       })
       map.fitBounds(bounds, { padding: 50, maxZoom: 14 })
     }

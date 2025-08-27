@@ -106,7 +106,7 @@ const PropertyValuation: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-8">
       {/* Property Input Form */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
         <div className="flex items-center space-x-3 mb-6">
